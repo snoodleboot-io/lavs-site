@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>lavs — a sane product version, derived from many</title>
+  <meta name="description" content="lavs (lowercase acronym versioning system) derives one coherent product version from independently-versioned components — libraries, services, UIs, CLIs. REST API + the Constellation UI, on DuckDB or PostgreSQL." />
+  <link rel="canonical" href="https://snoodleboot-io.github.io/lavs-site/" />
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="lavs — a sane product version, derived from many" />
+  <meta property="og:description" content="Derive one coherent product version from independently-versioned components. REST API + the Constellation UI, on DuckDB or PostgreSQL." />
+  <meta property="og:url" content="https://snoodleboot-io.github.io/lavs-site/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='7' fill='%23ffd36b'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site">
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="lavs home">
+        <span class="dot" aria-hidden="true"></span>
+        lavs<span class="low">&nbsp;· versioning</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#features">Features</a>
+        <a href="#editions">Editions</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#quickstart">Quickstart</a>
+        <a class="ghlink" href="https://github.com/snoodleboot-io/lavs">GitHub&nbsp;↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <a id="top"></a>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" style="border-top:none">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow"><span class="dot" style="width:7px;height:7px;border-radius:50%;background:var(--meridian);display:inline-block"></span> Approaching v1</span>
+          <h1>One <span class="accent">coherent product version</span>, derived from many.</h1>
+          <p class="lede">Your libraries, services, UIs and CLIs each version on their own timeline. lavs composes them into a single, retrievable release manifest — without forcing them to lie about their versions.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#quickstart">Get started</a>
+            <a class="btn btn-ghost" href="https://github.com/snoodleboot-io/lavs">View on GitHub</a>
+          </div>
+          <p class="hero-note">Open source · runs on <code>DuckDB</code> locally and <code>PostgreSQL</code> in production — identical API on both.</p>
+        </div>
+
+        <div class="constellation" role="img" aria-label="A constellation of component versions crossed by a luminous meridian — the candidate product release.">
+          <svg viewBox="0 0 400 400" aria-hidden="true">
+            <!-- orbits -->
+            <ellipse class="orbit" cx="200" cy="200" rx="150" ry="150" />
+            <ellipse class="orbit" cx="200" cy="200" rx="105" ry="105" />
+            <ellipse class="orbit" cx="200" cy="200" rx="60" ry="60" />
+            <!-- meridian: the candidate release cutting across components -->
+            <line class="meridian-line" x1="200" y1="30" x2="200" y2="370" />
+            <!-- component stars, on the meridian -->
+            <g class="star"><circle cx="200" cy="80" r="7" fill="#5ad1ff" /></g>
+            <g class="star"><circle cx="200" cy="150" r="6" fill="#b78cff" /></g>
+            <g class="star"><circle cx="200" cy="235" r="7" fill="#7cffb0" /></g>
+            <g class="star"><circle cx="200" cy="315" r="6" fill="#ffd166" /></g>
+            <!-- scattered field stars -->
+            <g class="star"><circle cx="95" cy="120" r="2.5" fill="#7c89a6" /></g>
+            <g class="star"><circle cx="300" cy="100" r="2" fill="#7c89a6" /></g>
+            <g class="star"><circle cx="320" cy="270" r="2.5" fill="#7c89a6" /></g>
+            <g class="star"><circle cx="80" cy="290" r="2" fill="#7c89a6" /></g>
+            <g class="star"><circle cx="140" cy="330" r="2" fill="#7c89a6" /></g>
+          </svg>
+          <span class="chip" style="top:16%;left:52%;color:var(--hue-service)">service · 2.4.1</span>
+          <span class="chip" style="top:34%;left:52%;color:var(--hue-ui)">ui · 5.0.0</span>
+          <span class="chip" style="top:56%;left:20%;color:var(--hue-library)">library · 1.9.3</span>
+          <span class="chip" style="top:76%;left:52%;color:var(--hue-cli)">cli · 0.7.0</span>
+          <span class="chip" style="top:6%;left:30%;color:var(--meridian)">◆ release 12</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROBLEM ============ -->
+    <section id="why">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="kicker">The problem</span>
+          <h2>Independent components. One version that has to make sense.</h2>
+          <p>As software scales into decoupled libraries, microservices and micro-frontends across separate pipelines, there's a pull to force everything onto one version number — unnaturally. lavs is the external system of record that lets each component keep its own version, and derives a product version that's actually true.</p>
+        </div>
+        <div class="flow" aria-label="Components compose into a release">
+          <span class="pill s">service</span><span class="arrow">+</span>
+          <span class="pill u">ui</span><span class="arrow">+</span>
+          <span class="pill l">library</span><span class="arrow">+</span>
+          <span class="pill" style="color:var(--hue-cli);border-color:color-mix(in srgb, var(--hue-cli) 40%, transparent)">cli</span>
+          <span class="arrow">&rarr;</span>
+          <span class="pill r">◆ product release + manifest</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FEATURES ============ -->
+    <section id="features">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="kicker">What it does</span>
+          <h2>A version system built for composed software.</h2>
+        </div>
+        <div class="grid grid-3">
+          <div class="card">
+            <div class="ico" aria-hidden="true">🧩</div>
+            <h3>Products → components → versions</h3>
+            <p>Model each product as a set of components, each with its own immutable, history-retaining version line.</p>
+          </div>
+          <div class="card">
+            <div class="ico" aria-hidden="true">◆</div>
+            <h3>Release derivation</h3>
+            <p>Cut a release from mixed component versions and get back a coherent, retrievable product-release manifest.</p>
+          </div>
+          <div class="card">
+            <div class="ico" aria-hidden="true">🗄️</div>
+            <h3>Multi-database</h3>
+            <p>The same API and test suite pass on DuckDB (local default) and PostgreSQL (production). MySQL & SQL Server are planned.</p>
+          </div>
+          <div class="card">
+            <div class="ico" aria-hidden="true">🔑</div>
+            <h3>Pluggable auth</h3>
+            <p>Password + sessions and headless API keys out of the box, selected purely by deploy config — no code changes.</p>
+          </div>
+          <div class="card">
+            <div class="ico" aria-hidden="true">📡</div>
+            <h3>Live updates (SSE)</h3>
+            <p>A server-sent-events channel streams <span class="mono">version.created</span>, rollbacks and release cuts so the UI updates live.</p>
+          </div>
+          <div class="card">
+            <div class="ico" aria-hidden="true">🌌</div>
+            <h3>The Constellation UI</h3>
+            <p>Browse products, scrub component versions to derive a candidate, and cut a release — a React app over the REST API.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EDITIONS ============ -->
+    <section id="editions">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="kicker">Editions</span>
+          <h2>Same product. Auth chosen by deploy config.</h2>
+          <p>lavs v1 ships as a REST API plus the Constellation UI in two editions — selected entirely by environment, with no fork and no resource-route differences.</p>
+        </div>
+        <div class="editions">
+          <div class="edition">
+            <span class="tag">// default</span>
+            <h3>OSS</h3>
+            <p class="price">Free &amp; open source</p>
+            <ul>
+              <li>Password + session auth — signup, email verification, optional domain allow-list</li>
+              <li>Headless <span class="mono">X-API-Key</span> for CI &amp; pipelines</li>
+              <li>DuckDB &amp; PostgreSQL backends</li>
+              <li>Full Constellation UI + live SSE</li>
+              <li><span class="mono">LAVS_AUTH_MODES=password,apikey</span></li>
+            </ul>
+            <a class="btn btn-ghost" href="https://github.com/snoodleboot-io/lavs">Get the source</a>
+          </div>
+          <div class="edition ee">
+            <span class="badge-ee">Shipped</span>
+            <span class="tag">// managed identity</span>
+            <h3>Enterprise</h3>
+            <p class="price">Managed identity via Stytch — let's talk</p>
+            <ul>
+              <li>Everything in OSS, plus:</li>
+              <li>Passwordless sign-in — email magic links + Google/GitHub OAuth</li>
+              <li>Stytch behind the same pluggable auth abstraction</li>
+              <li>OSS build &amp; all resource routes unchanged</li>
+              <li><span class="mono">LAVS_EDITION=ee</span></li>
+            </ul>
+            <a class="btn btn-primary" href="mailto:john@snoodleboot.com?subject=lavs%20Enterprise%20(Stytch)">Contact us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ARCHITECTURE ============ -->
+    <section id="architecture">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="kicker">Under the hood</span>
+          <h2>A REST API with an optional auth layer.</h2>
+          <p>Functionally simple by design: a pluggable authentication spine in front of a clean versioning core, with operational <span class="mono">/health</span>, <span class="mono">/ready</span> and <span class="mono">/meta</span> endpoints for Kubernetes and clients.</p>
+        </div>
+        <figure class="arch">
+          <img src="assets/lavs_architecture.png" alt="lavs architecture: clients call a REST API guarded by a pluggable authentication layer, which fronts the versioning core and its database backend." loading="lazy" />
+          <figcaption>The v1 architecture — clients → pluggable auth → versioning core → DuckDB / PostgreSQL.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ QUICKSTART ============ -->
+    <section id="quickstart">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="kicker">Quickstart</span>
+          <h2>Up and running in minutes.</h2>
+          <p>Run the container directly, or deploy the Helm chart. It ships non-root, with health/readiness probes wired.</p>
+        </div>
+        <div class="qs-grid">
+          <div>
+            <p class="mono" style="color:var(--muted);font-size:0.82rem;margin:0 0 8px">docker</p>
+            <div class="code">
+<span class="c"># build &amp; run the API</span><br />
+<span class="k">docker</span> build -t lavs .<br />
+<span class="k">docker</span> run -p <b>8080</b>:8080 lavs<br />
+<br />
+<span class="c"># check it's alive</span><br />
+<span class="k">curl</span> localhost:8080/<b>health</b><br />
+<span class="c"># → {"status":"ok"}</span>
+            </div>
+          </div>
+          <div>
+            <p class="mono" style="color:var(--muted);font-size:0.82rem;margin:0 0 8px">helm</p>
+            <div class="code">
+<span class="c"># deploy to Kubernetes</span><br />
+<span class="k">helm</span> install lavs ./helm/lavs<br />
+<br />
+<span class="c"># enable the EE (Stytch) edition</span><br />
+<span class="k">helm</span> install lavs ./helm/lavs \<br />
+&nbsp;&nbsp;--set auth.modes=<b>stytch,apikey</b> \<br />
+&nbsp;&nbsp;--set-string env.<b>LAVS_EDITION</b>=ee
+            </div>
+          </div>
+        </div>
+        <div class="qs-links">
+          <a href="https://github.com/snoodleboot-io/lavs">Repository &amp; README ↗</a>
+          <a href="https://github.com/snoodleboot-io/lavs/blob/main/docs/ops/STYTCH_MANUAL_SMOKE.md">EE / Stytch setup ↗</a>
+          <a href="https://github.com/snoodleboot-io/lavs/blob/main/docs/design/API_CONTRACT.md">API contract ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="cta-band">
+      <div class="wrap">
+        <h2>Stop forcing one version onto everything.</h2>
+        <p>Give every component its own honest version, and let lavs derive the product release that ties them together.</p>
+        <div class="hero-cta" style="justify-content:center">
+          <a class="btn btn-primary" href="https://github.com/snoodleboot-io/lavs">Start with the source</a>
+          <a class="btn btn-ghost" href="mailto:john@snoodleboot.com?subject=lavs%20Enterprise%20(Stytch)">Talk about Enterprise</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site">
+    <div class="wrap foot">
+      <div>
+        <a class="brand" href="#top" style="font-size:0.95rem"><span class="dot" aria-hidden="true"></span> lavs</a>
+        <div style="margin-top:8px">lowercase acronym versioning system · open source</div>
+      </div>
+      <div class="fl">
+        <a href="https://github.com/snoodleboot-io/lavs">GitHub</a>
+        <a href="#features">Features</a>
+        <a href="#editions">Editions</a>
+        <a href="#quickstart">Quickstart</a>
+        <a href="mailto:john@snoodleboot.com">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
