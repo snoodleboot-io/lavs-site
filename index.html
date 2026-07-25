@@ -28,7 +28,6 @@
       </a>
       <nav class="nav-links" aria-label="Primary">
         <a href="#features">Features</a>
-        <a href="#editions">Editions</a>
         <a href="#architecture">Architecture</a>
         <a href="#quickstart">Quickstart</a>
         <a class="ghlink" href="https://github.com/snoodleboot-io/lavs">GitHub&nbsp;↗</a>
@@ -143,7 +142,8 @@
       </div>
     </section>
 
-    <!-- ============ EDITIONS ============ -->
+    <!-- ============ EDITIONS (HIDDEN — EE/Enterprise not public yet; un-hide by removing this comment wrapper) ============ -->
+    <!--
     <section id="editions">
       <div class="wrap">
         <div class="section-head">
@@ -182,6 +182,7 @@
         </div>
       </div>
     </section>
+    -->
 
     <!-- ============ ARCHITECTURE ============ -->
     <section id="architecture">
@@ -225,16 +226,14 @@
 <span class="c"># deploy to Kubernetes</span><br />
 <span class="k">helm</span> install lavs ./helm/lavs<br />
 <br />
-<span class="c"># enable the EE (Stytch) edition</span><br />
+<span class="c"># configure auth by deploy config</span><br />
 <span class="k">helm</span> install lavs ./helm/lavs \<br />
-&nbsp;&nbsp;--set auth.modes=<b>stytch,apikey</b> \<br />
-&nbsp;&nbsp;--set-string env.<b>LAVS_EDITION</b>=ee
+&nbsp;&nbsp;--set auth.modes=<b>password,apikey</b>
             </div>
           </div>
         </div>
         <div class="qs-links">
           <a href="https://github.com/snoodleboot-io/lavs">Repository &amp; README ↗</a>
-          <a href="https://github.com/snoodleboot-io/lavs/blob/main/docs/ops/STYTCH_MANUAL_SMOKE.md">EE / Stytch setup ↗</a>
           <a href="https://github.com/snoodleboot-io/lavs/blob/main/docs/design/API_CONTRACT.md">API contract ↗</a>
         </div>
       </div>
@@ -247,7 +246,7 @@
         <p>Give every component its own honest version, and let lavs derive the product release that ties them together.</p>
         <div class="hero-cta" style="justify-content:center">
           <a class="btn btn-primary" href="https://github.com/snoodleboot-io/lavs">Start with the source</a>
-          <a class="btn btn-ghost" href="mailto:john@snoodleboot.com?subject=lavs%20Enterprise%20(Stytch)">Talk about Enterprise</a>
+          <a class="btn btn-ghost" href="#quickstart">Read the quickstart</a>
         </div>
       </div>
     </section>
@@ -262,7 +261,6 @@
       <div class="fl">
         <a href="https://github.com/snoodleboot-io/lavs">GitHub</a>
         <a href="#features">Features</a>
-        <a href="#editions">Editions</a>
         <a href="#quickstart">Quickstart</a>
         <a href="mailto:john@snoodleboot.com">Contact</a>
       </div>
