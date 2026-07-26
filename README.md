@@ -1,6 +1,6 @@
 # lavs-site
 
-Marketing / landing site for **[lavs](https://github.com/snoodleboot-io/lavs)** — the lowercase acronym versioning system.
+Marketing / landing site for **[lavs](https://github.com/snoodleboot-io/lavs-core)** — the lowercase acronym versioning system.
 
 Static, vanilla HTML/CSS (no build step), hosted on **GitHub Pages**. Visual language ("Observatory") is ported from the product's own design tokens for brand continuity.
 
